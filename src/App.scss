@@ -1,0 +1,16 @@
+.test-div {
+  box-sizing: border-box;
+  padding: 16px;
+  color: whitesmoke;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    border-radius: 1em;
+    padding: 8px;
+    color: gray;
+    background-color: whitesmoke;
+  }
+}

@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import './App.scss';
+import React from 'react';
+import Text from './stories/Text';
 
 function App() {
+  console.log('debug env: ', process.env);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Text level='xxl'>Text XXL</Text>
+      <Text level='xl'>Text XL</Text>
+      <Text level='l'>Text L</Text>
+      <Text></Text>
+      <Text level='m'>Text M</Text>
+      <Text level='s'>Text S</Text>
+      <Text level='xs'>Text XS</Text>
+      <div className='test-div'>
+        <p className='test-p'>Paragraph</p>
+      </div>
+    </>
   );
 }
 

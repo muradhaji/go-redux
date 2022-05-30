@@ -1,0 +1,22 @@
+.storybook-text {
+  font-size: 1em;
+}
+
+.storybook-text--xs {
+  font-size: 0.5em;
+}
+.storybook-text--s {
+  font-size: 0.75em;
+}
+.storybook-text--m {
+  font-size: 1em;
+}
+.storybook-text--l {
+  font-size: 1.25em;
+}
+.storybook-text--xl {
+  font-size: 1.5em;
+}
+.storybook-text--xxl {
+  font-size: 1.75em;
+}
