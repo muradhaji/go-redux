@@ -1,15 +1,13 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { memo } from 'react';
+import { connect } from 'react-redux';
 import { reset } from '../../Redux/Slices/counterSlice';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const CounterReset = (props) => {
-  const dispatch = useDispatch();
-
+const CounterReset = ({ reset }) => {
   return (
     <button
       onClick={() => {
-        dispatch(reset());
+        reset();
       }}
     >
       Reset
@@ -17,6 +15,8 @@ const CounterReset = (props) => {
   );
 };
 
-CounterReset.propTypes = {};
+CounterReset.propTypes = {
+  reset: PropTypes.func,
+};
 
-export default CounterReset;
+export default connect(null, { reset })(memo(CounterReset));

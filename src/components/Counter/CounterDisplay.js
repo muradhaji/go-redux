@@ -1,10 +1,8 @@
 import React, { memo } from 'react';
+import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-const CounterDisplay = (props) => {
-  const { counter: counterSlice = null } = useSelector((state) => state) || {};
-
+const CounterDisplay = ({ counterSlice }) => {
   const { value = 0 } = counterSlice || {};
 
   return (
@@ -16,4 +14,9 @@ const CounterDisplay = (props) => {
 
 CounterDisplay.propTypes = {};
 
-export default memo(CounterDisplay);
+const mapStateToProps = (state) => {
+  const { counter: counterSlice = null } = state || {};
+  return { counterSlice };
+};
+
+export default connect(mapStateToProps, {})(memo(CounterDisplay));

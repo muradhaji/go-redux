@@ -1,23 +1,21 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { memo } from 'react';
+import { connect } from 'react-redux';
 import { decrement, decrementByAmount } from '../../Redux/Slices/counterSlice';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const CounterDecrements = (props) => {
-  const dispatch = useDispatch();
-
+const CounterDecrements = ({ decrement, decrementByAmount }) => {
   return (
     <>
       <button
         onClick={() => {
-          dispatch(decrement());
+          decrement();
         }}
       >
         Decrement
       </button>
       <button
         onClick={() => {
-          dispatch(decrementByAmount(3));
+          decrementByAmount(3);
         }}
       >
         Decrement By 3
@@ -26,6 +24,11 @@ const CounterDecrements = (props) => {
   );
 };
 
-CounterDecrements.propTypes = {};
+CounterDecrements.propTypes = {
+  decrement: PropTypes.func,
+  decrementByAmount: PropTypes.func,
+};
 
-export default CounterDecrements;
+export default connect(null, { decrement, decrementByAmount })(
+  memo(CounterDecrements)
+);

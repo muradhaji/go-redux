@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Provider } from 'react-redux';
 import store from './Redux/store';
 import './App.css';
-import Counter, {
+import {
   CounterDecrements,
   CounterDisplay,
   CounterIncrements,
@@ -13,7 +13,7 @@ function App() {
   return (
     <Suspense fallback={<div className='suspense-loader'>LOADING ...</div>}>
       <Provider store={store}>
-        {Counter && <Counter />}
+        {/* {Counter && <Counter />} */}
         {CounterDisplay && (
           <div>
             <CounterDisplay />

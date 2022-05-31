@@ -1,23 +1,21 @@
 import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { increment, incrementByAmount } from '../../Redux/Slices/counterSlice';
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const CounterIncrements = (props) => {
-  const dispatch = useDispatch();
-
+const CounterIncrements = ({ increment, incrementByAmount }) => {
   return (
     <>
       <button
         onClick={() => {
-          dispatch(increment());
+          increment();
         }}
       >
         Increment
       </button>
       <button
         onClick={() => {
-          dispatch(incrementByAmount(3));
+          incrementByAmount(3);
         }}
       >
         Increment By 3
@@ -26,6 +24,11 @@ const CounterIncrements = (props) => {
   );
 };
 
-CounterIncrements.propTypes = {};
+CounterIncrements.propTypes = {
+  increment: PropTypes.func,
+  incrementByAmount: PropTypes.func,
+};
 
-export default memo(CounterIncrements);
+export default connect(null, { increment, incrementByAmount })(
+  memo(CounterIncrements)
+);
